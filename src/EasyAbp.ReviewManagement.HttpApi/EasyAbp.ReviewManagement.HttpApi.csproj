@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="3.2.1" />
+    <ProjectReference Include="..\EasyAbp.ReviewManagement.Application.Contracts\EasyAbp.ReviewManagement.Application.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

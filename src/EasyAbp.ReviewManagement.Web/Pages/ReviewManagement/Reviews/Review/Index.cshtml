@@ -1,0 +1,58 @@
+@page
+@using EasyAbp.ReviewManagement.Permissions
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using EasyAbp.ReviewManagement.Web.Pages.ReviewManagement.Reviews.Review
+@using EasyAbp.ReviewManagement.Localization
+@using EasyAbp.ReviewManagement.Web.Menus
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<ReviewManagementResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["Review"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:Review"].Value);
+    PageLayout.Content.MenuItemName = ReviewManagementMenus.Review;
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/ReviewManagement/Reviews/Review/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/ReviewManagement/Reviews/Review/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["Review"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+			    @if (await Authorization.IsGrantedAsync(ReviewManagementPermissions.Review.Create))
+                {
+                <abp-button id="NewReviewButton"
+                            text="@L["CreateReview"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="ReviewTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["ReviewEntityType"]</th>
+                <th>@L["ReviewEntityId"]</th>
+                <th>@L["ReviewStartCount"]</th>
+                <th>@L["ReviewIsPublic"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

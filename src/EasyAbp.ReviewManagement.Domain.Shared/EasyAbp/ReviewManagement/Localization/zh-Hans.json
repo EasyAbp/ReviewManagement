@@ -1,0 +1,28 @@
+{
+  "culture": "zh-Hans",
+  "texts": {
+    "ManageYourProfile": "管理个人资料",
+    "Permission:Review": "Review",
+    "Permission:Create": "Create",
+    "Permission:Update": "Update",
+    "Permission:Delete": "Delete",
+    "Menu:Review": "MenuReview",
+    "Review": "Review",
+    "ReviewEntityType": "ReviewEntityType",
+    "ReviewEntityId": "ReviewEntityId",
+    "ReviewStartCount": "ReviewStartCount",
+    "ReviewIsPublic": "ReviewIsPublic",
+    "ReviewReviewDetail": "ReviewReviewDetail",
+    "CreateReview": "CreateReview",
+    "EditReview": "EditReview",
+    "ReviewDeletionConfirmationMessage": "Are you sure to delete the review {0}?",
+    "SuccessfullyDeleted": "Successfully deleted",
+    "Menu:ReviewDetail": "MenuReviewDetail",
+    "ReviewDetail": "ReviewDetail",
+    "ReviewDetailText": "ReviewDetailText",
+    "ReviewDetailMediaResources": "ReviewDetailMediaResources",
+    "CreateReviewDetail": "CreateReviewDetail",
+    "EditReviewDetail": "EditReviewDetail",
+    "ReviewDetailDeletionConfirmationMessage": "Are you sure to delete the reviewDetail {0}?"
+  }
+}
