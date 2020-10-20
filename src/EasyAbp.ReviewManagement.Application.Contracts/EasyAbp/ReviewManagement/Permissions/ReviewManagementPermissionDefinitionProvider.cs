@@ -11,6 +11,7 @@ namespace EasyAbp.ReviewManagement.Permissions
             var myGroup = context.AddGroup(ReviewManagementPermissions.GroupName, L("Permission:ReviewManagement"));
 
             var reviewPermission = myGroup.AddPermission(ReviewManagementPermissions.Review.Default, L("Permission:Review"));
+            reviewPermission.AddChild(ReviewManagementPermissions.Review.Manage, L("Permission:Manage"));
             reviewPermission.AddChild(ReviewManagementPermissions.Review.Create, L("Permission:Create"));
             reviewPermission.AddChild(ReviewManagementPermissions.Review.Update, L("Permission:Update"));
             reviewPermission.AddChild(ReviewManagementPermissions.Review.Delete, L("Permission:Delete"));

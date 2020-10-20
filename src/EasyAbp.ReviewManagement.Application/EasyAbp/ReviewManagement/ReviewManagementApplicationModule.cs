@@ -2,6 +2,7 @@
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
 using Volo.Abp.Application;
+using Volo.Abp.Users;
 
 namespace EasyAbp.ReviewManagement
 {
@@ -9,8 +10,9 @@ namespace EasyAbp.ReviewManagement
         typeof(ReviewManagementDomainModule),
         typeof(ReviewManagementApplicationContractsModule),
         typeof(AbpDddApplicationModule),
-        typeof(AbpAutoMapperModule)
-        )]
+        typeof(AbpAutoMapperModule),
+        typeof(AbpUsersAbstractionModule)
+    )]
     public class ReviewManagementApplicationModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)

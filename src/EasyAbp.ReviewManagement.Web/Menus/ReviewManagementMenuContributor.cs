@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using EasyAbp.ReviewManagement.Localization;
 using EasyAbp.ReviewManagement.Permissions;
@@ -19,12 +20,19 @@ namespace EasyAbp.ReviewManagement.Web.Menus
         {
             var l = context.GetLocalizer<ReviewManagementResource>();
              //Add main menu items.
+             
+            var reviewManagementMenuItem = new ApplicationMenuItem(ReviewManagementMenus.Prefix, l["Menu:ReviewManagement"]);
 
-            if (await context.IsGrantedAsync(ReviewManagementPermissions.Review.Default))
+            if (await context.IsGrantedAsync(ReviewManagementPermissions.Review.Manage))
             {
-                context.Menu.AddItem(
+                reviewManagementMenuItem.AddItem(
                     new ApplicationMenuItem(ReviewManagementMenus.Review, l["Menu:Review"], "/ReviewManagement/Reviews/Review")
                 );
+            }
+            
+            if (!reviewManagementMenuItem.Items.IsNullOrEmpty())
+            {
+                context.Menu.Items.Add(reviewManagementMenuItem);
             }
         }
     }

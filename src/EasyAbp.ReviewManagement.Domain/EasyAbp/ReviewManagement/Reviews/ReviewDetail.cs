@@ -18,9 +18,17 @@ namespace EasyAbp.ReviewManagement.Reviews
 
         public ReviewDetail(
             Guid id, 
-            string text, 
-            string mediaResources
+            [CanBeNull] string text, 
+            [CanBeNull] string mediaResources
         ) : base(id)
+        {
+            Text = text;
+            MediaResources = mediaResources;
+        }
+
+        public void Update(
+            [CanBeNull] string text, 
+            [CanBeNull] string mediaResources)
         {
             Text = text;
             MediaResources = mediaResources;

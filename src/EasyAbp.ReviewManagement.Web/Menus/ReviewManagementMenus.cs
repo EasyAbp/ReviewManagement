@@ -2,7 +2,7 @@
 {
     public class ReviewManagementMenus
     {
-        private const string Prefix = "EasyAbp.ReviewManagement";
+        public const string Prefix = "EasyAbp.ReviewManagement";
 
         //Add your menu items here...
         //public const string Home = Prefix + ".MyNewMenuItem";

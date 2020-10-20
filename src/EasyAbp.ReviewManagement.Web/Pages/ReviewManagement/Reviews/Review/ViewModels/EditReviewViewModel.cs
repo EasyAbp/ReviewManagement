@@ -6,19 +6,13 @@ namespace EasyAbp.ReviewManagement.Web.Pages.ReviewManagement.Reviews.Review.Vie
 {
     public class EditReviewViewModel
     {
-        [Display(Name = "ReviewEntityType")]
-        public string EntityType { get; set; }
+        [Display(Name = "ReviewStarCount")]
+        public StarCount StarCount { get; set; }
 
-        [Display(Name = "ReviewEntityId")]
-        public string EntityId { get; set; }
-
-        [Display(Name = "ReviewStartCount")]
-        public short StartCount { get; set; }
+        [Display(Name = "ReviewReviewDetail")]
+        public EditReviewDetailViewModel ReviewDetail { get; set; }
 
         [Display(Name = "ReviewIsPublic")]
         public bool IsPublic { get; set; }
-        
-        [Display(Name = "ReviewReviewDetail")]
-        public EditReviewDetailViewModel ReviewDetail { get; set; }
     }
 }

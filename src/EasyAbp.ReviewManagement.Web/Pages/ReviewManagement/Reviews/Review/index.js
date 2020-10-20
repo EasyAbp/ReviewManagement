@@ -3,6 +3,7 @@ $(function () {
     var l = abp.localization.getResource('EasyAbpReviewManagement');
 
     var service = easyAbp.reviewManagement.reviews.review;
+    var readModal = new abp.ModalManager(abp.appPath + 'ReviewManagement/Reviews/Review/ReadModal');
     var createModal = new abp.ModalManager(abp.appPath + 'ReviewManagement/Reviews/Review/CreateModal');
     var editModal = new abp.ModalManager(abp.appPath + 'ReviewManagement/Reviews/Review/EditModal');
 
@@ -20,6 +21,12 @@ $(function () {
                 rowAction: {
                     items:
                         [
+                            {
+                                text: l('Read'),
+                                action: function (data) {
+                                    readModal.open({ id: data.record.id });
+                                }
+                            },
                             {
                                 text: l('Edit'),
                                 visible: abp.auth.isGranted('EasyAbp.ReviewManagement.Review.Update'),
@@ -46,8 +53,9 @@ $(function () {
             },
             { data: "entityType" },
             { data: "entityId" },
-            { data: "startCount" },
+            { data: "starCount" },
             { data: "isPublic" },
+            { data: "creatorUserName" }
         ]
     }));
 

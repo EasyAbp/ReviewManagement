@@ -9,7 +9,7 @@ namespace EasyAbp.ReviewManagement.Reviews
         ICrudAppService< 
             ReviewDto, 
             Guid, 
-            PagedAndSortedResultRequestDto,
+            GetReviewListInput,
             CreateReviewDto,
             UpdateReviewDto>
     {

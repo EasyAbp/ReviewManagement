@@ -50,10 +50,14 @@ namespace EasyAbp.ReviewManagement.Web.Unified.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EntityId")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(64)")
+                        .HasMaxLength(64);
 
                     b.Property<string>("EntityType")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(64)")
+                        .HasMaxLength(64);
 
                     b.Property<string>("ExtraProperties")
                         .HasColumnName("ExtraProperties")
@@ -79,7 +83,7 @@ namespace EasyAbp.ReviewManagement.Web.Unified.Migrations
                     b.Property<Guid?>("ReviewDetailId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<short>("StartCount")
+                    b.Property<short>("StarCount")
                         .HasColumnType("smallint");
 
                     b.Property<Guid?>("TenantId")
@@ -89,6 +93,10 @@ namespace EasyAbp.ReviewManagement.Web.Unified.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ReviewDetailId");
+
+                    b.HasIndex("TenantId", "EntityType", "EntityId", "IsPublic");
+
+                    b.HasIndex("TenantId", "CreatorId", "EntityType", "EntityId", "IsPublic");
 
                     b.ToTable("EasyAbpReviewManagementReviews");
                 });
@@ -100,10 +108,12 @@ namespace EasyAbp.ReviewManagement.Web.Unified.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MediaResources")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(1024)")
+                        .HasMaxLength(1024);
 
                     b.Property<string>("Text")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(1024)")
+                        .HasMaxLength(1024);
 
                     b.HasKey("Id");
 

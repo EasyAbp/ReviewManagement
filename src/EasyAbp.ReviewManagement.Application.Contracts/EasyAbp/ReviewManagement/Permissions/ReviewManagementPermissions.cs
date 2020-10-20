@@ -14,6 +14,7 @@ namespace EasyAbp.ReviewManagement.Permissions
         public class Review
         {
             public const string Default = GroupName + ".Review";
+            public const string Manage = Default + ".Manage";
             public const string Update = Default + ".Update";
             public const string Create = Default + ".Create";
             public const string Delete = Default + ".Delete";

@@ -1,0 +1,18 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal;
+@using EasyAbp.ReviewManagement.Localization
+@inject IHtmlLocalizer<ReviewManagementResource> L
+@model EasyAbp.ReviewManagement.Web.Pages.ReviewManagement.Reviews.Review.ReadModalModel
+@{
+    Layout = null;
+}
+<abp-dynamic-form abp-model="ViewModel" data-ajaxForm="true" asp-page="ReadModal">
+    <abp-modal>
+        <abp-modal-header title="@L["ReadReview"].Value"></abp-modal-header>
+        <abp-modal-body>
+            <abp-form-content />
+        </abp-modal-body>
+        <abp-modal-footer buttons="@AbpModalButtons.Close"></abp-modal-footer>
+    </abp-modal>
+</abp-dynamic-form>

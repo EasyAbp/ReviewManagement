@@ -76,7 +76,7 @@ namespace EasyAbp.ReviewManagement.Migrations
                         .HasColumnName("LastModifierId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<short>("StartCount")
+                    b.Property<short>("StarCount")
                         .HasColumnType("smallint");
 
                     b.Property<Guid?>("TenantId")
