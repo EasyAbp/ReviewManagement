@@ -24,6 +24,7 @@ namespace EasyAbp.ReviewManagement.Reviews.Authorization
             if (!await _permissionChecker.IsGrantedAsync(ReviewManagementPermissions.Review.Create))
             {
                 context.Fail();
+                return;
             }
             
             // Should execute context.Succeed(requirement) in other handlers.
