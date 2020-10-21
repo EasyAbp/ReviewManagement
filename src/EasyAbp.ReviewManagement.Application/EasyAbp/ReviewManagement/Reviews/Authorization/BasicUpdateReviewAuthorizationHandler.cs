@@ -24,12 +24,14 @@ namespace EasyAbp.ReviewManagement.Reviews.Authorization
             if (!await _permissionChecker.IsGrantedAsync(ReviewManagementPermissions.Review.Update))
             {
                 context.Fail();
+                return;
             }
 
             if (resource.CreatorId != context.User.FindUserId() &&
                 !await _permissionChecker.IsGrantedAsync(ReviewManagementPermissions.Review.Manage))
             {
                 context.Fail();
+                return;
             }
 
             // Should execute context.Succeed(requirement) in other handlers.

@@ -13,6 +13,7 @@ namespace EasyAbp.ReviewManagement.Reviews.Authorization
             if (resource == null)
             {
                 context.Fail();
+                return Task.CompletedTask;
             }
             
             context.Succeed(requirement);

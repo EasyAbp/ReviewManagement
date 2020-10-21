@@ -17,6 +17,7 @@ namespace EasyAbp.ReviewManagement.Reviews.Authorization
             if (input.CreatorId.HasValue && input.CreatorId.Value == context.User.FindUserId())
             {
                 context.Fail();
+                return Task.CompletedTask;
             }
 
             context.Succeed(requirement);
