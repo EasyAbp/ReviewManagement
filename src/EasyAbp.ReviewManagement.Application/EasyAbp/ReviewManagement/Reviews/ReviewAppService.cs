@@ -36,7 +36,7 @@ namespace EasyAbp.ReviewManagement.Reviews
 
         protected override IQueryable<Review> CreateFilteredQuery(GetReviewListInput input)
         {
-            return _repository
+            return _repository.WithDetails()
                 .WhereIf(input.EntityType != null, x => x.EntityType == input.EntityType)
                 .WhereIf(input.EntityType != null && input.EntityId != null, x => x.EntityId == input.EntityId)
                 .WhereIf(input.CreatorId.HasValue, x => x.CreatorId == input.CreatorId);
