@@ -36,7 +36,7 @@
   dependencies:
     ansi-colors "^4.1.1"
     extend-object "^1.0.0"
-    gulp "^4.0.2"
+    gulp "^$(AbpVersion)"
     merge-stream "^2.0.0"
     path "^0.12.7"
     rimraf "^3.0.2"
@@ -1104,9 +1104,9 @@ gulp-cli@^2.2.0:
     v8flags "^3.0.1"
     yargs "^7.1.0"
 
-gulp@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/gulp/-/gulp-4.0.2.tgz#543651070fd0f6ab0a0650c6a3e6ff5a7cb09caa"
+gulp@^$(AbpVersion):
+  version "$(AbpVersion)"
+  resolved "https://registry.yarnpkg.com/gulp/-/gulp-$(AbpVersion).tgz#543651070fd0f6ab0a0650c6a3e6ff5a7cb09caa"
   integrity sha512-dvEs27SCZt2ibF29xYgmnwwCYZxdxhQ/+LFWlbAW8y7jt68L/65402Lz3+CKy0Ov4rOs+NERmDq7YlZaDqUIfA==
   dependencies:
     glob-watcher "^5.0.3"
@@ -1718,7 +1718,7 @@ node-pre-gyp@^0.12.0:
     needle "^2.2.1"
     nopt "^4.0.1"
     npm-packlist "^1.1.6"
-    npmlog "^4.0.2"
+    npmlog "^$(AbpVersion)"
     rc "^1.2.7"
     rimraf "^2.6.1"
     semver "^5.3.0"
@@ -1774,7 +1774,7 @@ npm-packlist@^1.1.6:
     ignore-walk "^3.0.1"
     npm-bundled "^1.0.1"
 
-npmlog@^4.0.2:
+npmlog@^$(AbpVersion):
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/npmlog/-/npmlog-4.1.2.tgz#08a7f2a8bf734604779a9efa4ad5cc717abb954b"
   integrity sha512-2uUqazuKlTaSI/dC8AzicUck7+IrEaOnN/e0jd3Xtt1KcGpwx30v50mL7oPyr/h9bL3E4aZccVwpwP+5W9Vjkg==
