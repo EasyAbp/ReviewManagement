@@ -1,11 +1,11 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
+FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
+FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /src
 COPY ["host/EasyAbp.ReviewManagement.Web.Unified/EasyAbp.ReviewManagement.Web.Unified.csproj", "host/EasyAbp.ReviewManagement.Web.Unified/"]
 COPY ["src/EasyAbp.ReviewManagement.Web/EasyAbp.ReviewManagement.Web.csproj", "src/EasyAbp.ReviewManagement.Web/"]
@@ -16,6 +16,7 @@ COPY ["src/EasyAbp.ReviewManagement.EntityFrameworkCore/EasyAbp.ReviewManagement
 COPY ["src/EasyAbp.ReviewManagement.Domain/EasyAbp.ReviewManagement.Domain.csproj", "src/EasyAbp.ReviewManagement.Domain/"]
 COPY ["src/EasyAbp.ReviewManagement.Application/EasyAbp.ReviewManagement.Application.csproj", "src/EasyAbp.ReviewManagement.Application/"]
 COPY ["host/EasyAbp.ReviewManagement.Host.Shared/EasyAbp.ReviewManagement.Host.Shared.csproj", "host/EasyAbp.ReviewManagement.Host.Shared/"]
+COPY Directory.Build.props .
 RUN dotnet restore "host/EasyAbp.ReviewManagement.Web.Unified/EasyAbp.ReviewManagement.Web.Unified.csproj"
 COPY . .
 WORKDIR "/src/host/EasyAbp.ReviewManagement.Web.Unified"
