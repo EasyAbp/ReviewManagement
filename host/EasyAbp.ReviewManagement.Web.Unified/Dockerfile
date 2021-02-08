@@ -5,7 +5,7 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["host/EasyAbp.ReviewManagement.Web.Unified/EasyAbp.ReviewManagement.Web.Unified.csproj", "host/EasyAbp.ReviewManagement.Web.Unified/"]
 COPY ["src/EasyAbp.ReviewManagement.Web/EasyAbp.ReviewManagement.Web.csproj", "src/EasyAbp.ReviewManagement.Web/"]
