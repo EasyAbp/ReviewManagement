@@ -12,9 +12,9 @@ namespace EasyAbp.ReviewManagement.Reviews
         {
         }
 
-        public override IQueryable<Review> WithDetails()
+        public override async Task<IQueryable<Review>> WithDetailsAsync()
         {
-            return DbSet.IncludeDetails();
+            return (await GetDbSetAsync()).IncludeDetails();
         }
     }
 }
