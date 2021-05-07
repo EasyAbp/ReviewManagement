@@ -32,6 +32,7 @@ using Volo.Abp.MultiTenancy;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.Security.Claims;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
+using Volo.Abp.Swashbuckle;
 using Volo.Abp.VirtualFileSystem;
 
 namespace EasyAbp.ReviewManagement
@@ -47,6 +48,7 @@ namespace EasyAbp.ReviewManagement
         typeof(AbpAuditLoggingEntityFrameworkCoreModule),
         typeof(AbpPermissionManagementEntityFrameworkCoreModule),
         typeof(AbpSettingManagementEntityFrameworkCoreModule),
+        typeof(AbpSwashbuckleModule),
         typeof(AbpAspNetCoreSerilogModule)
         )]
     public class ReviewManagementHttpApiHostModule : AbpModule
@@ -163,7 +165,7 @@ namespace EasyAbp.ReviewManagement
 
             app.UseHttpsRedirection();
             app.UseCorrelationId();
-            app.UseVirtualFiles();
+            app.UseStaticFiles();
             app.UseRouting();
             app.UseCors(DefaultCorsPolicyName);
             app.UseAuthentication();

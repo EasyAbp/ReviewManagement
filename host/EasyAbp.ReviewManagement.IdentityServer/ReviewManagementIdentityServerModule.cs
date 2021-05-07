@@ -40,6 +40,7 @@ using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.PermissionManagement.HttpApi;
 using Volo.Abp.PermissionManagement.Identity;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
+using Volo.Abp.Swashbuckle;
 using Volo.Abp.TenantManagement;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using Volo.Abp.Threading;
@@ -74,7 +75,8 @@ namespace EasyAbp.ReviewManagement
         typeof(AbpTenantManagementHttpApiModule),
         typeof(AbpAspNetCoreAuthenticationJwtBearerModule),
         typeof(ReviewManagementApplicationContractsModule),
-        typeof(AbpAspNetCoreSerilogModule)
+        typeof(AbpAspNetCoreSerilogModule),
+        typeof(AbpSwashbuckleModule)
         )]
     public class ReviewManagementIdentityServerModule : AbpModule
     {
@@ -184,7 +186,7 @@ namespace EasyAbp.ReviewManagement
 
             app.UseHttpsRedirection();
             app.UseCorrelationId();
-            app.UseVirtualFiles();
+            app.UseStaticFiles();
             app.UseRouting();
             app.UseCors(DefaultCorsPolicyName);
             app.UseAuthentication();
