@@ -34,9 +34,9 @@ namespace EasyAbp.ReviewManagement.Reviews
             return await MapToGetOutputDtoAsync(review);
         }
 
-        protected override IQueryable<Review> CreateFilteredQuery(GetReviewListInput input)
+        protected override async Task<IQueryable<Review>> CreateFilteredQueryAsync(GetReviewListInput input)
         {
-            return _repository.WithDetails()
+            return (await _repository.WithDetailsAsync())
                 .WhereIf(input.EntityType != null, x => x.EntityType == input.EntityType)
                 .WhereIf(input.EntityType != null && input.EntityId != null, x => x.EntityId == input.EntityId)
                 .WhereIf(input.CreatorId.HasValue, x => x.CreatorId == input.CreatorId);
@@ -44,9 +44,9 @@ namespace EasyAbp.ReviewManagement.Reviews
 
         public override async Task<PagedResultDto<ReviewDto>> GetListAsync(GetReviewListInput input)
         {
-            await AuthorizationService.CheckAsync(null, new GetReviewListAuthorizationRequirement {Input = input});
+            await AuthorizationService.CheckAsync(null, new GetReviewListAuthorizationRequirement { Input = input });
 
-            var query = CreateFilteredQuery(input);
+            var query = await CreateFilteredQueryAsync(input);
 
             var totalCount = await AsyncExecuter.CountAsync(query);
 
