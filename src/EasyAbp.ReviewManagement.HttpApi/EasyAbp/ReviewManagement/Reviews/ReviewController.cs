@@ -7,7 +7,7 @@ using Volo.Abp.Application.Dtos;
 
 namespace EasyAbp.ReviewManagement.Reviews
 {
-    [RemoteService(Name = "EasyAbpReviewManagement")]
+    [RemoteService(Name = ReviewManagementRemoteServiceConsts.RemoteServiceName)]
     [Route("/api/review-management/review")]
     public class ReviewController : ReviewManagementController, IReviewAppService
     {

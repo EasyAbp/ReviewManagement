@@ -33,6 +33,7 @@ using Volo.Abp.Caching;
 using Volo.Abp.Caching.StackExchangeRedis;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Http.Client.IdentityModel.Web;
+using Volo.Abp.Http.Client.Web;
 using Volo.Abp.Identity;
 using Volo.Abp.Identity.Web;
 using Volo.Abp.Modularity;
@@ -59,6 +60,7 @@ namespace EasyAbp.ReviewManagement
         typeof(AbpAutofacModule),
         typeof(AbpCachingStackExchangeRedisModule),
         typeof(AbpHttpClientIdentityModelWebModule),
+        typeof(AbpHttpClientWebModule),
         typeof(AbpIdentityWebModule),
         typeof(AbpIdentityHttpApiClientModule),
         typeof(AbpFeatureManagementWebModule),
@@ -68,7 +70,7 @@ namespace EasyAbp.ReviewManagement
         typeof(AbpPermissionManagementHttpApiClientModule),
         typeof(AbpAspNetCoreSerilogModule),
         typeof(AbpSwashbuckleModule)
-        )]
+    )]
     public class ReviewManagementWebHostModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)

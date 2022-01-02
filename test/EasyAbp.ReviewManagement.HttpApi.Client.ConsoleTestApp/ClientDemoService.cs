@@ -66,7 +66,7 @@ namespace EasyAbp.ReviewManagement
             {
                 httpClient.SetBearerToken(accessToken);
 
-                var url = _configuration["RemoteServices:ReviewManagement:BaseUrl"] +
+                var url = _configuration["RemoteServices:EasyAbpReviewManagement:BaseUrl"] +
                           "api/ReviewManagement/sample/authorized";
 
                 var responseMessage = await httpClient.GetAsync(url);
@@ -127,7 +127,7 @@ namespace EasyAbp.ReviewManagement
             {
                 httpClient.SetBearerToken(tokenResponse.AccessToken);
 
-                var url = _configuration["RemoteServices:ReviewManagement:BaseUrl"] +
+                var url = _configuration["RemoteServices:EasyAbpReviewManagement:BaseUrl"] +
                           "api/ReviewManagement/sample/authorized";
 
                 var responseMessage = await httpClient.GetAsync(url);

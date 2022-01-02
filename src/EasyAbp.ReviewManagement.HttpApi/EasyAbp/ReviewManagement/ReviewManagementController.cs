@@ -1,9 +1,11 @@
 ﻿using EasyAbp.ReviewManagement.Localization;
+using Microsoft.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc;
 
 namespace EasyAbp.ReviewManagement
 {
-    public abstract class ReviewManagementController : AbpController
+    [Area(ReviewManagementRemoteServiceConsts.ModuleName)]
+    public abstract class ReviewManagementController : AbpControllerBase
     {
         protected ReviewManagementController()
         {

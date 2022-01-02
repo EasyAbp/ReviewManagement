@@ -13,7 +13,7 @@ using EasyAbp.ReviewManagement.Permissions;
 namespace EasyAbp.ReviewManagement.Web
 {
     [DependsOn(
-        typeof(ReviewManagementHttpApiModule),
+        typeof(ReviewManagementApplicationContractsModule),
         typeof(AbpAspNetCoreMvcUiThemeSharedModule),
         typeof(AbpAutoMapperModule)
         )]
