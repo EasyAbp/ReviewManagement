@@ -10,14 +10,14 @@ namespace EasyAbp.ReviewManagement.HttpApi.Client.ConsoleTestApp
     {
         public async Task StartAsync(CancellationToken cancellationToken)
         {
-            using (var application = AbpApplicationFactory.Create<ReviewManagementConsoleApiClientModule>())
+            using (var application = await AbpApplicationFactory.CreateAsync<ReviewManagementConsoleApiClientModule>())
             {
-                application.Initialize();
+                await application.InitializeAsync();
 
                 var demo = application.ServiceProvider.GetRequiredService<ClientDemoService>();
                 await demo.RunAsync();
 
-                application.Shutdown();
+                await application.ShutdownAsync();
             }
         }
 
