@@ -21,7 +21,8 @@ namespace EasyAbp.ReviewManagement.Web.Menus
             var l = context.GetLocalizer<ReviewManagementResource>();
              //Add main menu items.
              
-            var reviewManagementMenuItem = new ApplicationMenuItem(ReviewManagementMenus.Prefix, l["Menu:ReviewManagement"]);
+            var reviewManagementMenuItem = new ApplicationMenuItem(ReviewManagementMenus.Prefix,
+                l["Menu:ReviewManagement"], icon: "fa fa-comment");
 
             if (await context.IsGrantedAsync(ReviewManagementPermissions.Review.Manage))
             {
@@ -32,7 +33,7 @@ namespace EasyAbp.ReviewManagement.Web.Menus
             
             if (!reviewManagementMenuItem.Items.IsNullOrEmpty())
             {
-                context.Menu.Items.Add(reviewManagementMenuItem);
+                context.Menu.GetAdministration().Items.Add(reviewManagementMenuItem);
             }
         }
     }
